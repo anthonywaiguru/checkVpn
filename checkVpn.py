@@ -25,10 +25,10 @@ def send_email():
     msg['Subject'] = subject
 
     msg.attach(MIMEText(message, 'plain'))
-
+    #The password is stored insecurely, replace YOURPASSWORD with your app password
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login(from_email, "tech-admin2022!")
+    server.login(from_email, "YOURPASSWORD")
     server.sendmail(from_email, to_email, msg.as_string())
     server.quit()
 

@@ -1,6 +1,6 @@
-CheckVPN.py: The VPN Guardian 🛡️
+# CheckVPN.py: The VPN Guardian 🛡️
 
-Hey there, DevOps aficionado! 
+Hey there, DevOps aficionado! 🧑‍💻
 
 Are you tired of your VPN acting like a rebellious teenager, disconnecting whenever it feels like it? Say hello to CheckVPN.py, the digital chaperone for your VPN connection. It's like a watchdog, but for adults who need to get work done.
 
@@ -9,7 +9,9 @@ Are you tired of your VPN acting like a rebellious teenager, disconnecting whene
 1. Python: You'll need Python 3.x. If you're still on Python 2, what are you doing?
 2. You will also need to install pip for python and install smtplib and socket library so that you can use them in your code.
 3. SMTP Email Account: You'll need an email account that allows SMTP. We've used Gmail here because, well, it's free!
-4. A Sense of Humor: Because life's too short to read boring READMEs ;)
+4. Access to a Linux server within the VPN ecosystem to install the Python program.
+5. Sudo access on Linux
+6. A Sense of Humor: Because life's too short to read boring READMEs 😉
 
 # How to Run 🏃‍♂️
 

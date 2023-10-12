@@ -4,19 +4,19 @@ import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-#Try to connect to the actual host and port, simillar to a telnet to Ip and Port
-def check_connection(host, port):
+def check_connection(host, port, timeout=8):
     try:
-        socket.create_connection((host, port))
+        with socket.create_connection((host, port), timeout=timeout):
+            print(f"Successfully connected to {host}:{port}")
         return True
-    except OSError:
+    except (OSError, socket.timeout) as e:
+        print(f"Failed to connect to {host}:{port} - {e}")
         return False
 
-# Email Credentials (Improve this by using a Secure App Password)
 def send_email():
-    from_email = "tech-admin@roamtech.com"
-    to_email = "anthony.waiguru@roamtech.com"
-    subject = "VPN Connection Alert"
+    from_email = "your_email@gmail.com"
+    to_email = "recipient_email@gmail.com"
+    subject = "Connection Alert"
     message = "Unable to connect to 196.201.213.89 on port 6691"
 
     msg = MIMEMultipart()
@@ -25,15 +25,14 @@ def send_email():
     msg['Subject'] = subject
 
     msg.attach(MIMEText(message, 'plain'))
-    #The password is stored insecurely, replace YOURPASSWORD with your app password
+
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login(from_email, "YOURPASSWORD")
+    server.login(from_email, "your_password")
     server.sendmail(from_email, to_email, msg.as_string())
     server.quit()
 
 while True:
     if not check_connection("196.201.213.89", 6691):
         send_email()
-    time.sleep(180)  # Sleep for 3 minutes, instead of a Cronjob, loop every 180 seconds.
-
+    time.sleep(180)  # Sleep for 3 minutes

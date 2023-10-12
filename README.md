@@ -29,7 +29,7 @@ All right, so you should get some nice output telling you " Successfully connect
 
 There are quite a few ways to accomplish this, I will emphasis on Two methods - using Supervisorctl  & Systemd on Linux (because real programmers use the Linux files system, yes, I said it!)
     
-    # Method 1 - Supervisor
+## Method 1 - Supervisor
 1. Install supervisor
    In Ubuntu, this can be accomplished using the "sudo apt-get update && sudo apt install supervisor" command, on CentOS use "sudo yum install epel-release && sudo yum install supervisor"
 
@@ -63,7 +63,7 @@ There are quite a few ways to accomplish this, I will emphasis on Two methods - 
 
    sudo supervisorctl start checkVpn
 
-   # Method 2 - Systemd
+ ## Method 2 - Systemd
 
    Ah, "systemd", the init system that people either love to love or love to hate.
    It's like the pineapple on pizza of the Linux world. Jokes aside, systemd is an init system used in Linux distributions to     

@@ -20,9 +20,9 @@ def check_connection(host, port, timeout=10):
 # Change the email addresses below to actual emails.
 def send_email():
     from_email = "tech@gmail.com"
-    to_emails = ["italerts@roamtech.com", "techops@gmail.com"]  # Insert email addresses into an array
+    to_emails = ["italerts@gmail.com", "techops@gmail.com"]  # Insert email addresses into an array
     subject = "Safaricom VPN Alert"
-    message = "Please check your connection to 192.200.1.89 Port 4991" # Insert a VPN IP and Port of your choosing. Ensure that from your server, you can telnet to the Port and IP
+    message = "Please check your connection to 196.200.1.89 Port 4991" # Insert a VPN IP and Port of your choosing. Ensure that from your server, you can telnet to the Port and IP
 
     msg = MIMEMultipart()
     msg['From'] = from_email
@@ -38,7 +38,7 @@ def send_email():
     server.quit()
 
 while True:
-    if not check_connection("192.200.1.89", 4991):
+    if not check_connection("196.200.1.89", 4991):
         send_email()
     time.sleep(180)  # Sleep for 3 minutes, instead of a Cronjob, loop every 180 seconds.
 
